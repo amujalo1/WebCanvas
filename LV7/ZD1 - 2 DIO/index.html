@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinamičke Kartice (AJAX)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #000;
+    }
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      text-decoration: none;
+      color: blue;
+    }
+    .tab:hover {
+      background-color: #f0f0f0;
+    }
+    .content {
+      padding: 20px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <a class="tab" href="#" onclick="loadPage('stranica1.html')">Stranica 1</a>
+    <a class="tab" href="#" onclick="loadPage('stranica2.html')">Stranica 2</a>
+    <a class="tab" href="#" onclick="loadPage('stranica3.html')">Stranica 3</a>
+  </div>
+  <div class="content" id="content">
+    <p>Odaberite stranicu za prikaz sadržaja.</p>
+  </div>
+  <script>
+    function loadPage(pageUrl) {
+      const xhr = new XMLHttpRequest(); // Kreiranje AJAX objekta
+      xhr.open("GET", pageUrl, true);   // GET zahtjev za sadržaj datoteke
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          document.getElementById("content").innerHTML = xhr.responseText;
+        } else {
+          document.getElementById("content").innerHTML = `<p>Greška: ${xhr.status}</p>`;
+        }
+      };
+      xhr.onerror = function () {
+        document.getElementById("content").innerHTML = `<p>Greška pri povezivanju sa serverom!</p>`;
+      };
+      xhr.send(); // Slanje zahtjeva
+    }
+  </script>
+</body>
+</html>

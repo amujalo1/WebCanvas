@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Čišćenje HTML koda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Čišćenje HTML koda</h1>
+    <textarea id="htmlInput" placeholder="Unesite HTML kod ovdje..."></textarea>
+    <button onclick="cleanHtml()">Očisti HTML</button>
+    <div id="output"></div>
+
+    <script>
+        function cleanHtml() {
+            const input = document.getElementById("htmlInput").value;
+
+            let cleanedText = input.replace(/<[^>]+>/g, '');
+
+            cleanedText = cleanedText
+                .replace(/&amp;/g, '&')
+                .replace(/&nbsp;/g, ' ')
+                .replace(/&quot;/g, '"');
+
+            document.getElementById("output").innerText = cleanedText;
+        }
+    </script>
+</body>
+</html>

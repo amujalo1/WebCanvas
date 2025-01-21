@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "save-dev": "^0.0.1-security"
+  },
+  "name": "zd1",
+  "version": "1.0.0",
+  "main": "wt-t7z1.js",
+  "scripts": {
+    "test": "nodemon wt-t5z1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

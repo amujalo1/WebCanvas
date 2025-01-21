@@ -1,0 +1,10 @@
+html
+    head
+        title Pogodi broj
+    body
+        h1 Pogodi broj
+        p Preostalo pokušaja: #{pokusaj.broj_pokusaja}
+        h2 #{pokusaj.poruka}
+        form(action="/", method="POST")
+            input(type="number", name="pokusaj", placeholder="Unesite broj")
+            input(type="submit", value="Pogodi")

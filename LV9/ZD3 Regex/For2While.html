@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformacija For u While</title>
+</head>
+<body>
+    <h1>Transformacija For u While u C programu</h1>
+    <textarea id="codeInput" rows="10" cols="50" placeholder="Unesite C kod ovdje..."></textarea>
+    <br>
+    <button onclick="transformForToWhile()">Transformiši</button>
+    <pre id="output"></pre>
+
+    <script>
+        function transformForToWhile() {
+            const inputCode = document.getElementById("codeInput").value;
+            const forRegex = /for\s*\(([^;]+);([^;]+);([^)]*)\)\s*\{([^}]*)\}/g;
+            const transformedCode = inputCode.replace(forRegex, (match, init, condition, increment, body) => {
+                return `\n${init.trim()}\nwhile (${condition.trim()}) {\n${body.trim()}\n${increment.trim()};\n}`;
+            });
+
+            document.getElementById("output").textContent = transformedCode;
+        }
+    </script>
+</body>
+</html>
