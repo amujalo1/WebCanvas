@@ -8,21 +8,18 @@ const dbService = require('./dbService');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended : false}));
+app.use(express.urlencoded({ extended: false }));
 
-//create
-app.post('/insert', (req, res) => {
-    console.log(req);
-});
-//reade
+// READ
 app.get('/imenik', (req, res) => {
-    const db= dbService.getDbServiceInstance();
+    const db = dbService.getDbServiceInstance();
 
     const result = db.getAllData();
     result
-    .then(data => response.json({data:data}))
-    .catch(err => console.log(err));
-})
+        .then(data => res.json({ data }))
+        .catch(err => res.status(500).json({ error: err.message }));
+});
+
 app.listen(process.env.PORT, () => {
-    console.log('aplikacija radi');
-})
+    console.log('Aplikacija radi na portu ' + process.env.PORT);
+});

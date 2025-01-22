@@ -1,0 +1,52 @@
+/* Osnovni stil za tabelu */
+table {
+    border-collapse: collapse;
+    width: 80%; /* Podesi širinu tabele */
+    margin: 50px auto; /* Centriraj tabelu */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Svijetla pozadina */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Blaga sjena */
+}
+
+/* Stil za zaglavlja */
+th {
+    background-color: #4CAF50; /* Zelena pozadina */
+    color: white; /* Bijeli tekst */
+    text-align: left; /* Poravnanje teksta */
+    padding: 10px;
+}
+
+/* Stil za ćelije */
+td {
+    border: 1px solid #ddd; /* Svijetla siva granica */
+    padding: 10px;
+    text-align: left; /* Poravnanje teksta */
+}
+
+/* Alternativne boje redova */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Svijetlosiva */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* Bijela */
+}
+
+/* Hover efekat za redove */
+tr:hover {
+    background-color: #d1e7dd; /* Svijetlozelena */
+    cursor: pointer;
+}
+
+/* Poravnanje teksta u tabeli */
+th, td {
+    text-align: center;
+}
+
+/* Stil za prazne podatke */
+.no-data {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+}
